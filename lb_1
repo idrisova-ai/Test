@@ -1,0 +1,14 @@
+import math
+
+
+def f(x):
+    return x * x * x - 8 * x + 1 - (- 2 * math.sin(x) - 10 * math.cos(x))
+
+
+interval = [x / 10000.0 for x in range(-50000, 50001, 1)]
+for i, item in enumerate(interval):
+    if i == 0:
+        if round(f(item), 2) == 0:
+            print(item)
+    elif round(f(item), 2) == 0 and round(f(interval[i - 1]), 2):
+        print(item)
